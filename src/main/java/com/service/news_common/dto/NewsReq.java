@@ -1,11 +1,10 @@
 package com.service.news_common.dto;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 @Data
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class NewsReq {
     private String searchType; // ex) top / all
