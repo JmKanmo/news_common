@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.service'
-version = '1.3' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
+version = '1.4' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
 
 java {
     toolchain {

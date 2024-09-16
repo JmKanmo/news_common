@@ -30,8 +30,8 @@ public class NewsomaticApiTest {
             Request request = new Request.Builder()
                     .url("https://newsomaticapi.p.rapidapi.com/top?from=2024-08-07&to=2024-08-08&language=kr&country=kr&sortBy=relevancy")
                     .get()
-                    .addHeader("x-rapidapi-key", "")
-                    .addHeader("x-rapidapi-host", "")
+                    .addHeader("x-rapidapi-key", "d9d8209b37msh58f5069b2a19b62p134a47jsn975b98d0c1cb")
+                    .addHeader("x-rapidapi-host", "newsomaticapi.p.rapidapi.com")
                     .build();
 
             Response response = client.newCall(request).execute();

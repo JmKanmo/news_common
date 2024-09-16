@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-@Component
 @Slf4j
 public class HttpUtil {
     private static final OkHttpClient client;
