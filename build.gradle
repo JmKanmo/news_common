@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.service'
-version = '1.2' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
+version = '1.3' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
 
 java {
     toolchain {
@@ -27,6 +27,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.2'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.17.2'
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.11.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

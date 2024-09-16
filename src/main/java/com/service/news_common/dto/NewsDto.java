@@ -1,5 +1,6 @@
 package com.service.news_common.dto;
 
+import com.service.news_common.util.DateUtil;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -28,6 +29,11 @@ public class NewsDto {
      * 출판 시간(YYYY-MM-DD HH:MM:SS)
      */
     private LocalDateTime publishTime;
+
+    // YYYY-MM-DD HH:MM 형태 반환 (초단위 까지는 화면에서 안보여줘도 될듯)
+    public String getPublishTime() {
+        return DateUtil.yyyyMMddHHmm(publishTime);
+    }
 
     /**
      * 뉴스 제목

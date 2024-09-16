@@ -1,6 +1,7 @@
 package com.service.news_common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,10 +10,14 @@ import java.util.Map;
 
 @Component
 public class JsonUtil {
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = getObjectMapper();
 
     public String writeValueAsString(Object obj) throws Exception {
         return objectMapper.writeValueAsString(obj);
+    }
+
+    public byte[] writeValueAsBytes(byte[] obj) throws Exception {
+        return objectMapper.writeValueAsBytes(obj);
     }
 
     public <T> T readClzValue(String str, Class<T> clz) throws Exception {
@@ -28,6 +33,8 @@ public class JsonUtil {
     }
 
     public ObjectMapper getObjectMapper() {
+        ObjectMapper _objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule()); // LocalDateTime 등 설정
         return this.objectMapper;
     }
 }

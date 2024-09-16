@@ -1,5 +1,6 @@
 package com.service.news_common;
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -77,7 +78,10 @@ public class NewsomaticApiTest {
     }
 
     private ObjectMapper makeObjectMapper() {
-        return new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
+        // Java 8 날짜 및 시간 타입 지원을 위한 모듈 등록
+        objectMapper.registerModule(new JavaTimeModule());
+        return objectMapper;
     }
 
     private Gson makeGson() {
