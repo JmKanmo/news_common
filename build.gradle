@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.service'
-version = '1.0'
+version = '1.2' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
 
 java {
     toolchain {
@@ -21,10 +21,16 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.12.0'
     compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.2'
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.11.0'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
