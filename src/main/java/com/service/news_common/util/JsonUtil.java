@@ -14,8 +14,14 @@ public class JsonUtil {
     private static final ObjectMapper objectMapper;
 
     static {
-        ObjectMapper _objectMapper = new ObjectMapper();
-        _objectMapper.registerModule(new JavaTimeModule()); // LocalDateTime 등 설정
+        ObjectMapper _objectMapper = null;
+        try {
+            _objectMapper = new ObjectMapper();
+            _objectMapper.registerModule(new JavaTimeModule()); // LocalDateTime 등 설정
+        } catch (Exception e) {
+            log.error("[JsonUtil] objectMapper registerModule init failed", e);
+            _objectMapper = new ObjectMapper();
+        }
         objectMapper = _objectMapper;
     }
 

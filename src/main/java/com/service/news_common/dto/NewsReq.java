@@ -3,6 +3,7 @@ package com.service.news_common.dto;
 import lombok.*;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
