@@ -2,6 +2,7 @@ package com.service.news_common;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
+import com.service.news_common.dto.NewsReq;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
@@ -75,6 +77,36 @@ public class NewsomaticApiTest {
     public void jacksonTest() {
         ObjectMapper objectMapper = makeObjectMapper();
         // TODO
+    }
+
+    @Test
+    public void makeNewsReq() {
+        LocalDateTime from = LocalDateTime.of(2024, 4, 11, 19, 40, 8);
+        String fromStr = from.toString();
+        System.out.println(fromStr);
+
+        LocalDateTime to = LocalDateTime.of(2024, 10, 6, 19, 22, 22);
+        String toStr = from.toString();
+        System.out.println(toStr);
+
+        NewsReq newsReq = NewsReq.builder()
+                .keyword("bitcoin")
+                .title("hello world")
+                .source("뉴스")
+                .domain("msbsound")
+                .excludeDomain("poclanos")
+                .fromDate(from)
+                .toDate(to)
+                .language("kr")
+                .country("pk")
+                .category("business")
+                .sortBy("relevancy")
+                .pageSize(Integer.toString(20))
+                .page(Integer.toString(30))
+                .build();
+
+        String newsQueryStr = newsReq.queryString();
+        System.out.println(newsQueryStr);
     }
 
     private ObjectMapper makeObjectMapper() {

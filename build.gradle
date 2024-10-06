@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.service'
-version = '1.5' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
+version = '1.6' // version 갱신 후에, publish task 수행, s3에 신규 프로젝트 업로드
 
 java {
     toolchain {
@@ -21,6 +21,8 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.17.0'
     // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.12.0'
