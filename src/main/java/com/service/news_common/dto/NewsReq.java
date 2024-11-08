@@ -27,6 +27,7 @@ public class NewsReq {
     private String sortBy; // 정렬
     private String pageSize; // 페이지 당 반환되는 결과 수 (크기)
     private String page; // 검색 결과 페이지 (오프셋)
+    private String hashCode; // API 요청 암호 해쉬코드
     // TODO 필요 시에 추가
 
     /**
